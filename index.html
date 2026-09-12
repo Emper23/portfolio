@@ -143,7 +143,29 @@
       </a>
     </div>
 
-    <!-- Background music (no UI) -->
+    <!-- Background music controls -->
+    <div class="music-controls" id="music-controls" aria-label="ตัวควบคุมเสียงเพลง">
+      <button class="music-toggle" id="music-toggle" type="button" aria-label="ปิดเสียง" aria-pressed="false">
+        <svg class="music-icon music-icon-on" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M11 5 6 9H3v6h3l5 4V5Z"></path>
+          <path d="M15 9.5a4 4 0 0 1 0 5"></path>
+          <path d="M17.8 7a7.5 7.5 0 0 1 0 10"></path>
+        </svg>
+        <svg class="music-icon music-icon-off" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M11 5 6 9H3v6h3l5 4V5Z"></path>
+          <path d="m16 10 5 5"></path>
+          <path d="m21 10-5 5"></path>
+        </svg>
+      </button>
+      <div class="music-volume-wrap">
+        <div class="music-volume-head">
+          <span>Background music</span>
+          <span id="music-volume-value">25%</span>
+        </div>
+        <input class="music-volume" id="music-volume" type="range" min="0" max="100" step="1" value="25" aria-label="ระดับเสียงเพลง">
+      </div>
+    </div>
+
     <audio id="music-audio" src="xujinhuan.mp3" preload="none" loop></audio>
 
     <footer>© <span id="year">2026</span> Znith · Built with <span class="heart">❤️</span></footer>
@@ -352,25 +374,72 @@
       });
     }
 
-    /* ── Background music (started from "click here" overlay) ── */
+    /* ── Background music + volume controls ── */
     (function () {
-      const audio    = document.getElementById('music-audio');
-      const overlay  = document.getElementById('enter-overlay');
-      const enterBtn = document.getElementById('enter-btn');
-      if (!audio || !enterBtn) return;
+      const audio       = document.getElementById('music-audio');
+      const overlay     = document.getElementById('enter-overlay');
+      const enterBtn    = document.getElementById('enter-btn');
+      const toggleBtn   = document.getElementById('music-toggle');
+      const volumeInput = document.getElementById('music-volume');
+      const volumeValue = document.getElementById('music-volume-value');
+      if (!audio || !enterBtn || !toggleBtn || !volumeInput || !volumeValue) return;
 
+      const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
+      let savedVolume = clamp(Number(localStorage.getItem('znith-music-volume') ?? 25) || 25, 0, 100);
+      let muted = localStorage.getItem('znith-music-muted') === 'true';
+      let fadeGeneration = 0;
+
+      volumeInput.value = String(savedVolume);
       audio.volume = 0;
+      audio.muted = muted;
+
+      const updateUI = () => {
+        const level = Number(volumeInput.value);
+        const silent = audio.muted || level === 0;
+        toggleBtn.classList.toggle('is-muted', silent);
+        toggleBtn.setAttribute('aria-pressed', String(audio.muted));
+        toggleBtn.setAttribute('aria-label', audio.muted ? 'เปิดเสียง' : 'ปิดเสียง');
+        volumeValue.textContent = silent ? 'MUTE' : level + '%';
+        document.documentElement.style.setProperty('--music-volume', level + '%');
+      };
+
+      volumeInput.addEventListener('input', () => {
+        fadeGeneration++;
+        savedVolume = clamp(Number(volumeInput.value), 0, 100);
+        localStorage.setItem('znith-music-volume', String(savedVolume));
+        if (savedVolume > 0 && audio.muted) {
+          audio.muted = false;
+          localStorage.setItem('znith-music-muted', 'false');
+        }
+        audio.volume = savedVolume / 100;
+        updateUI();
+      });
+
+      toggleBtn.addEventListener('click', () => {
+        audio.muted = !audio.muted;
+        localStorage.setItem('znith-music-muted', String(audio.muted));
+        updateUI();
+      });
+
+      const fadeIn = () => {
+        const generation = ++fadeGeneration;
+        const target = savedVolume / 100;
+        if (target <= 0) {
+          audio.volume = 0;
+          return;
+        }
+        let v = 0;
+        const step = () => {
+          if (generation !== fadeGeneration) return;
+          v = Math.min(v + 0.025, target);
+          audio.volume = v;
+          if (v < target) setTimeout(step, 80);
+        };
+        step();
+      };
+
       const enter = () => {
         const p = audio.play();
-        const fadeIn = () => {
-          let v = 0;
-          const step = () => {
-            v = Math.min(v + 0.025, 0.25);
-            audio.volume = v;
-            if (v < 0.25) setTimeout(step, 80);
-          };
-          step();
-        };
         if (p && typeof p.then === 'function') {
           p.then(fadeIn).catch(() => {});
         } else {
@@ -378,6 +447,8 @@
         }
         if (overlay) overlay.classList.add('hide');
       };
+
+      updateUI();
       enterBtn.addEventListener('click', enter, { once: true });
     })();
 
