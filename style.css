@@ -1047,3 +1047,85 @@ footer {
 @media (max-width:860px){.projects-grid{grid-template-columns:1fr 1fr}.project-card:last-child{grid-column:auto}}
 @media (max-width:640px){.projects-grid{grid-template-columns:1fr}.project-actions{grid-template-columns:1fr 1fr}}
 @media (max-width:380px){.project-actions{grid-template-columns:1fr}}
+
+
+/* ── Music controls ── */
+.music-controls{
+  display:grid;
+  grid-template-columns:42px 1fr;
+  align-items:center;
+  gap:12px;
+  margin:2px 0 18px;
+  padding:10px 12px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;
+  background:linear-gradient(135deg,rgba(139,92,246,.07),rgba(6,182,212,.025));
+}
+.music-toggle{
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(167,139,250,.18);
+  border-radius:11px;
+  color:#ddd6fe;
+  background:rgba(139,92,246,.10);
+  cursor:pointer;
+  transition:transform .2s ease,border-color .2s ease,background .2s ease,color .2s ease;
+}
+.music-toggle:hover{
+  transform:translateY(-1px);
+  border-color:rgba(167,139,250,.42);
+  background:rgba(139,92,246,.18);
+  color:#fff;
+}
+.music-toggle:focus-visible{outline:2px solid rgba(103,232,249,.8);outline-offset:3px}
+.music-icon{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.music-icon-off{display:none}
+.music-toggle.is-muted .music-icon-on{display:none}
+.music-toggle.is-muted .music-icon-off{display:block}
+.music-volume-wrap{min-width:0}
+.music-volume-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:8px;
+  color:#a9a2c4;
+  font:500 .64rem/1 'JetBrains Mono',monospace;
+  letter-spacing:.04em;
+}
+.music-volume-head span:last-child{color:#c4b5fd;font-variant-numeric:tabular-nums}
+.music-volume{
+  --track-fill:var(--music-volume,25%);
+  width:100%;
+  height:4px;
+  display:block;
+  appearance:none;
+  -webkit-appearance:none;
+  border-radius:999px;
+  outline:none;
+  cursor:pointer;
+  background:linear-gradient(90deg,#8b5cf6 0 var(--track-fill),rgba(255,255,255,.10) var(--track-fill) 100%);
+}
+.music-volume::-webkit-slider-thumb{
+  width:14px;height:14px;
+  -webkit-appearance:none;
+  appearance:none;
+  border:2px solid #ddd6fe;
+  border-radius:50%;
+  background:#8b5cf6;
+  box-shadow:0 0 12px rgba(139,92,246,.45);
+}
+.music-volume::-moz-range-thumb{
+  width:11px;height:11px;
+  border:2px solid #ddd6fe;
+  border-radius:50%;
+  background:#8b5cf6;
+  box-shadow:0 0 12px rgba(139,92,246,.45);
+}
+@media (max-width:360px){
+  .music-controls{grid-template-columns:38px 1fr;padding:9px 10px}
+  .music-toggle{width:38px;height:38px}
+  .music-volume-head{font-size:.58rem}
+}
