@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Znith — Profile</title>
+  <meta name="description" content="โปรไฟล์ของ Znith — นักพัฒนาสายคอม ที่ทำได้ทุกอย่างที่ AI ทำได้">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%91%BE%3C/text%3E%3C/svg%3E">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Znith — Profile">
+  <meta property="og:description" content="นักพัฒนาสายคอม ที่ทำได้ทุกอย่างที่ AI ทำได้">
+  <meta property="og:image" content="pourya-gohari-Y6qw1cZL4so-unsplash.jpg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Znith — Profile">
+  <meta name="twitter:description" content="นักพัฒนาสายคอม ที่ทำได้ทุกอย่างที่ AI ทำได้">
+  <meta name="twitter:image" content="pourya-gohari-Y6qw1cZL4so-unsplash.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Background image -->
+  <img class="bg-image" id="bg-image" src="pourya-gohari-Y6qw1cZL4so-unsplash.jpg" alt="" aria-hidden="true" fetchpriority="high" decoding="async">
+  <div class="bg-video-overlay"></div>
+
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <!-- Ambient blobs -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <!-- Grid overlay -->
+  <div class="grid-overlay"></div>
+
+  <div class="card-tilt" id="card-tilt">
+  <main class="profile" id="profile-card">
+
+    <!-- Status badge -->
+    <div class="status-badge">
+      <span class="status-dot"></span>
+      Online now
+    </div>
+
+    <!-- Avatar -->
+    <div class="avatar-wrap">
+      <div class="avatar-ring"></div>
+      <img
+        class="avatar"
+        src="ea5cd0023874321878b7c3d2b66163dc.webp"
+        alt="รูปโปรไฟล์ Znith"
+        width="140" height="140"
+        decoding="async"
+      >
+      <div class="avatar-glow"></div>
+    </div>
+
+    <!-- Name + typing -->
+    <h1 class="name">Znith</h1>
+    <p class="tagline">
+      <span class="typing" id="typing-text">Game Developer & Web Developer</span><span class="cursor">|</span>
+    </p>
+
+    <!-- Live clock -->
+    <div class="clock" id="clock">--:--:--</div>
+
+    <!-- Stats row -->
+    <div class="stats-row">
+      <div class="stat">
+        <span class="stat-num">1+</span>
+        <span class="stat-label">ปีประสบการณ์</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num">5</span>
+        <span class="stat-label">โปรเจกต์</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-num">∞</span>
+        <span class="stat-label">ความอยากรู้</span>
+      </div>
+    </div>
+
+    <!-- Bio -->
+    <div class="bio-card">
+      <div class="bio-icon">👾</div>
+      <p class="bio-text">
+        From low-level curiosity to AI-powered software. Learning. Building. Sharing.
+      </p>
+    </div>
+
+    <!-- Skills chips -->
+    <div class="skills">
+      <span class="chip" style="--i:0">Lua</span>
+      <span class="chip" style="--i:1">HTML</span>
+      <span class="chip" style="--i:2">CSS</span>
+    </div>
+
+    <!-- Links -->
+    <div class="links">
+      <a href="mailto:emperhub@gmail.com" class="link-card" id="link-email"
+         data-copy="emperhub@gmail.com" aria-label="อีเมล emperhub@gmail.com — คลิกเพื่อคัดลอก">
+        <span class="link-icon-wrap email-ic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </span>
+        <span class="link-label">อีเมล</span>
+        <span class="link-meta">emperhub@gmail.com</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://github.com/Emper23" class="link-card" id="link-github" target="_blank" rel="noopener"
+         aria-label="GitHub ของ Emper23 (เปิดแท็บใหม่)">
+        <span class="link-icon-wrap github-ic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </span>
+        <span class="link-label">GitHub</span>
+        <span class="link-meta">Emper23</span>
+        <span class="link-arrow">→</span>
+      </a>
+      <a href="https://x.com/Sosad547" class="link-card" id="link-twitter" target="_blank" rel="noopener"
+         aria-label="Twitter / X ของ @Sosad547 (เปิดแท็บใหม่)">
+        <span class="link-icon-wrap twitter-ic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </span>
+        <span class="link-label">Twitter / X</span>
+        <span class="link-meta">@Sosad547</span>
+        <span class="link-arrow">→</span>
+      </a>
+
+      <a href="https://discord.gg/CN9Cyv5EVF" class="link-card" id="link-discord" target="_blank" rel="noopener"
+         aria-label="Discord เซิร์ฟเวอร์ Emper Hub (เปิดแท็บใหม่)">
+        <span class="link-icon-wrap discord-ic">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/>
+          </svg>
+        </span>
+        <span class="link-label">Discord</span>
+        <span class="link-meta">Emper Hub</span>
+        <span class="link-arrow">→</span>
+      </a>
+    </div>
+
+    <!-- Background music (no UI) -->
+    <audio id="music-audio" src="xujinhuan.mp3" preload="none" loop></audio>
+
+    <footer>© <span id="year">2026</span> Znith · Built with <span class="heart">❤️</span></footer>
+  </main>
+  </div>
+
+
+  <!-- Featured projects -->
+  <section class="projects-section" id="projects" aria-labelledby="projects-title">
+    <div class="projects-heading">
+      <div>
+        <span class="section-kicker">SELECTED WORK</span>
+        <h2 id="projects-title">Featured Projects</h2>
+      </div>
+      <p>โปรเจกต์ที่คัดมาเพื่อให้เห็นทั้งงานเว็บ งาน UI และงานระบบแบบไม่ต้องเลื่อนจนลืมว่าตัวเองเข้ามาทำอะไร</p>
+    </div>
+
+    <div class="projects-grid">
+      <article class="project-card project-game project-live">
+        <div class="project-visual" aria-hidden="true">
+          <div class="project-window">
+            <span></span><span></span><span></span>
+            <div class="project-window-content">
+              <div class="mini-sidebar"></div>
+              <div class="mini-grid"><i></i><i></i><i></i><i></i></div>
+            </div>
+          </div>
+          <span class="project-number">01</span>
+          <span class="project-live-badge"><i></i> LIVE</span>
+        </div>
+        <div class="project-body">
+          <div class="project-topline"><span>GAME ID MARKETPLACE</span><span>Live Project</span></div>
+          <h3>Emper Shop</h3>
+          <p>ร้านขายไอดีเกมที่ทำระบบหน้าร้าน รายละเอียดสินค้า Profile, Wallet, Checkout และ Admin สำหรับแก้ข้อมูล ราคา รูป และสต็อก พร้อม deploy บน Cloudflare Pages.</p>
+          <div class="project-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Cloudflare</span></div>
+          <a class="project-open" href="https://emper-shop-eor.pages.dev/" target="_blank" rel="noopener" aria-label="เปิดเว็บไซต์ Emper Shop">เปิดเว็บไซต์ <span>↗</span></a>
+        </div>
+      </article>
+
+      <article class="project-card project-manga project-live">
+        <div class="project-visual" aria-hidden="true">
+          <div class="manga-sheet manga-sheet-one"></div>
+          <div class="manga-sheet manga-sheet-two"></div>
+          <div class="manga-sheet manga-sheet-three"></div>
+          <span class="project-number">02</span>
+          <span class="project-live-badge"><i></i> LIVE</span>
+        </div>
+        <div class="project-body">
+          <div class="project-topline"><span>MANGA READER</span><span>Live Project</span></div>
+          <h3>Manga Nova</h3>
+          <p>เว็บอ่านมังงะที่ออกแบบให้ค้นหาเรื่อง ดูรายการมังงะ และอ่านตอนต่าง ๆ ได้ต่อเนื่อง พร้อมรองรับการใช้งานบนหลายขนาดหน้าจอ.</p>
+          <div class="project-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Cloudflare</span></div>
+          <a class="project-open" href="https://d133eaf4.manga-nova-6l2.pages.dev/" target="_blank" rel="noopener" aria-label="เปิดเว็บไซต์ Manga Nova">เปิดเว็บไซต์ <span>↗</span></a>
+        </div>
+      </article>
+
+      <article class="project-card project-hotel">
+        <div class="project-visual" aria-hidden="true">
+          <div class="hotel-orb"></div>
+          <div class="hotel-panel">
+            <i></i><i></i><i></i>
+          </div>
+          <span class="project-number">03</span>
+        </div>
+        <div class="project-body">
+          <div class="project-topline"><span>BOOKING UI</span><span>Practice</span></div>
+          <h3>Hotel Booking</h3>
+          <p>หน้าเว็บจองโรงแรมสำหรับฝึกออกแบบประสบการณ์ค้นหาห้อง ดูรายละเอียด และจัดลำดับข้อมูลให้ตัดสินใจง่ายขึ้น.</p>
+          <div class="project-stack"><span>HTML</span><span>CSS</span><span>UX</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+
+  <!-- Copy toast -->
+  <div class="copy-toast" id="copy-toast" role="status" aria-live="polite">คัดลอกอีเมลแล้ว ✓</div>
+
+  <!-- Click-to-enter overlay -->
+  <div class="enter-overlay" id="enter-overlay">
+    <div class="enter-shell">
+      <div class="enter-eyebrow"><span class="eyebrow-dot"></span>PORTFOLIO / 2026</div>
+      <button class="enter-btn" id="enter-btn" aria-label="เข้าสู่โปรไฟล์ Znith และเปิดเสียงพื้นหลัง">
+        <span class="enter-kicker">HELLO, I'M</span>
+        <span class="enter-text">ZniTH</span>
+        <span class="enter-sub">GAME DEVELOPER · WEB DEVELOPER · ROBLOX SCRIPTER</span>
+        <span class="enter-divider"></span>
+        <span class="enter-sub2">ENTER PORTFOLIO <span class="enter-arrow">↗</span></span>
+      </button>
+      <div class="enter-hint">CLICK TO ENTER · SOUND ON</div>
+    </div>
+  </div>
+  <script>
+    /* ── Reduced-motion flag ── */
+    const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const IS_MOBILE = window.matchMedia('(max-width: 768px)').matches;
+    const HOVER_CAPABLE = window.matchMedia('(hover: hover)').matches;
+
+    /* ── Auto year ── */
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ── Typing animation ── */
+    const phrases = [
+      'Game Developer & Web Developer',
+      'Junior Developer · Roblox Scripter',
+    ];
+    let pi = 0, ci = 0, deleting = false;
+    const el = document.getElementById('typing-text');
+    
+    if (el && !REDUCED) {
+      el.textContent = '';
+      
+      function typeLoop() {
+        const word = phrases[pi];
+        if (!deleting) {
+          el.textContent = word.slice(0, ++ci);
+          if (ci === word.length) { deleting = true; setTimeout(typeLoop, 2200); return; }
+        } else {
+          el.textContent = word.slice(0, --ci);
+          if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+        }
+        setTimeout(typeLoop, deleting ? 70 : 110);
+      }
+      
+      setTimeout(typeLoop, 500);
+    }
+
+    /* ── Live clock (Bangkok timezone) ── */
+    function tick() {
+      const now = new Date();
+      document.getElementById('clock').textContent =
+        now.toLocaleTimeString('th-TH', { hour12: false, timeZone: 'Asia/Bangkok' });
+    }
+    tick(); setInterval(tick, 1000);
+
+    /* ── Particle canvas ── */
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    canvas.setAttribute('aria-hidden', 'true');
+    let W, H, dots = [];
+    function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+    resize(); window.addEventListener('resize', resize);
+    function randRange(a, b) { return a + Math.random() * (b - a); }
+    const DOT_COUNT = REDUCED ? 0 : (IS_MOBILE ? 28 : 70);
+    for (let i = 0; i < DOT_COUNT; i++) {
+      dots.push({
+        x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight,
+        r: randRange(0.4, 1.8),
+        vx: randRange(-0.18, 0.18), vy: randRange(-0.18, 0.18),
+        a: randRange(0.15, 0.6),
+        hue: Math.random() > 0.5 ? '139,92,246' : '6,182,212'
+      });
+    }
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      dots.forEach(d => {
+        d.x = (d.x + d.vx + W) % W;
+        d.y = (d.y + d.vy + H) % H;
+        ctx.beginPath();
+        ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${d.hue},${d.a})`;
+        ctx.fill();
+      });
+      requestAnimationFrame(draw);
+    }
+    if (!REDUCED) {
+      draw();
+    } else {
+      ctx.clearRect(0, 0, W, H);
+      dots.forEach(d => {
+        const x = Math.random() * W, y = Math.random() * H;
+        ctx.beginPath();
+        ctx.arc(x, y, d.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${d.hue},${d.a})`;
+        ctx.fill();
+      });
+    }
+
+    /* ── Card entrance ── */
+    const card = document.getElementById('profile-card');
+    if (!REDUCED) {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(40px) scale(0.97)';
+      setTimeout(() => {
+        card.style.transition = 'opacity 0.9s cubic-bezier(.22,1,.36,1), transform 0.9s cubic-bezier(.22,1,.36,1)';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0) scale(1)';
+      }, 120);
+
+      /* ── Chip stagger ── */
+      document.querySelectorAll('.chip').forEach((c, i) => {
+        c.style.opacity = '0';
+        c.style.transform = 'translateY(10px)';
+        setTimeout(() => {
+          c.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+          c.style.opacity = '1';
+          c.style.transform = 'translateY(0)';
+        }, 600 + i * 80);
+      });
+    }
+
+    /* ── Background music (started from "click here" overlay) ── */
+    (function () {
+      const audio    = document.getElementById('music-audio');
+      const overlay  = document.getElementById('enter-overlay');
+      const enterBtn = document.getElementById('enter-btn');
+      if (!audio || !enterBtn) return;
+
+      audio.volume = 0;
+      const enter = () => {
+        const p = audio.play();
+        const fadeIn = () => {
+          let v = 0;
+          const step = () => {
+            v = Math.min(v + 0.025, 0.25);
+            audio.volume = v;
+            if (v < 0.25) setTimeout(step, 80);
+          };
+          step();
+        };
+        if (p && typeof p.then === 'function') {
+          p.then(fadeIn).catch(() => {});
+        } else {
+          fadeIn();
+        }
+        if (overlay) overlay.classList.add('hide');
+      };
+      enterBtn.addEventListener('click', enter, { once: true });
+    })();
+
+    /* ── Copy email on click ── */
+    (function () {
+      const emailLink = document.getElementById('link-email');
+      const toast = document.getElementById('copy-toast');
+      if (!emailLink || !toast) return;
+      let toastTimer;
+      emailLink.addEventListener('click', (e) => {
+        const value = emailLink.getAttribute('data-copy');
+        if (!navigator.clipboard || !value) return; // fall back to mailto
+        e.preventDefault();
+        navigator.clipboard.writeText(value).then(() => {
+          toast.classList.add('show');
+          clearTimeout(toastTimer);
+          toastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
+        }).catch(() => {
+          window.location.href = 'mailto:' + value;
+        });
+      });
+    })();
+
+    /* ── Mouse parallax tilt (desktop, non-reduced-motion) ── */
+    if (!REDUCED && HOVER_CAPABLE) {
+      const tilt = document.getElementById('card-tilt');
+      document.addEventListener('mousemove', e => {
+        const cx = window.innerWidth / 2;
+        const cy = window.innerHeight / 2;
+        const dx = (e.clientX - cx) / cx;
+        const dy = (e.clientY - cy) / cy;
+        tilt.style.transform = `perspective(900px) rotateY(${dx * 4}deg) rotateX(${-dy * 4}deg)`;
+      });
+      document.addEventListener('mouseleave', () => {
+        tilt.style.transform = 'perspective(900px) rotateY(0) rotateX(0)';
+      });
+    }
+  </script>
+</body>
+</html>
