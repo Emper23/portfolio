@@ -1137,3 +1137,31 @@ footer {
   .music-toggle{width:38px;height:38px}
   .music-volume-head{font-size:.58rem}
 }
+
+
+/* ── Scroll reveal ── */
+.reveal-item{
+  opacity:0;
+  transform:translate3d(0,34px,0) scale(.985);
+  filter:blur(5px);
+  transition:
+    opacity .72s cubic-bezier(.22,1,.36,1) var(--reveal-delay,0ms),
+    transform .82s cubic-bezier(.22,1,.36,1) var(--reveal-delay,0ms),
+    filter .72s ease var(--reveal-delay,0ms);
+  will-change:opacity,transform,filter;
+}
+.projects-heading.reveal-item{
+  transform:translate3d(0,22px,0);
+  filter:blur(3px);
+}
+.reveal-item.is-visible{
+  opacity:1;
+  transform:translate3d(0,0,0) scale(1);
+  filter:blur(0);
+}
+.project-card.reveal-item.is-visible:hover{
+  transform:translateY(-6px);
+}
+@media (prefers-reduced-motion: reduce){
+  .reveal-item{opacity:1!important;transform:none!important;filter:none!important;transition:none!important;}
+}
