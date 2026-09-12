@@ -1,0 +1,26 @@
+# Cloudflare Pages / Netlify cache headers
+# จัดการ cache สำหรับไฟล์ static ขนาดใหญ่ (วิดีโอ/เสียง/รูป)
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/style.css
+  Cache-Control: public, max-age=86400
+
+/*.mp4
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.mp3
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
