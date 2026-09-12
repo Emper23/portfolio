@@ -1029,3 +1029,23 @@ footer {
 .project-open{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:16px;padding:10px 13px;border-radius:12px;text-decoration:none;color:#f7f5ff;background:linear-gradient(135deg,rgba(139,92,246,.16),rgba(6,182,212,.08));border:1px solid rgba(167,139,250,.2);font:600 .7rem/1 'JetBrains Mono',monospace;transition:transform .22s ease,border-color .22s ease,background .22s ease}
 .project-open:hover{transform:translateY(-2px);border-color:rgba(167,139,250,.42);background:linear-gradient(135deg,rgba(139,92,246,.24),rgba(6,182,212,.13))}
 .project-open span{font-size:.9rem}
+
+
+/* ── NovaMCP project ── */
+.projects-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+.project-mcp .project-visual{background:radial-gradient(circle at 72% 20%,rgba(6,182,212,.24),transparent 30%),radial-gradient(circle at 16% 82%,rgba(139,92,246,.34),transparent 36%),#080914;}
+.mcp-glow{position:absolute;z-index:1;width:190px;height:190px;left:calc(50% - 95px);top:5px;border-radius:50%;background:radial-gradient(circle,rgba(6,182,212,.16),rgba(139,92,246,.08) 48%,transparent 72%);filter:blur(8px);}
+.mcp-window{position:absolute;z-index:3;width:82%;height:72%;left:9%;top:15%;border:1px solid rgba(125,211,252,.18);border-radius:13px;background:linear-gradient(160deg,rgba(12,18,34,.96),rgba(9,8,24,.92));box-shadow:0 20px 52px rgba(0,0,0,.5),0 0 40px rgba(6,182,212,.06);overflow:hidden;transform:perspective(700px) rotateX(4deg) rotateY(-5deg);}
+.mcp-titlebar{height:30px;display:flex;align-items:center;gap:5px;padding:0 10px;border-bottom:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.025);}
+.mcp-titlebar i{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.25);}
+.mcp-titlebar span{margin-left:6px;color:rgba(207,250,254,.7);font:500 .44rem/1 'JetBrains Mono',monospace;letter-spacing:.08em;}
+.mcp-status-row{display:grid;grid-template-columns:7px auto 7px auto 7px auto;align-items:center;gap:6px;padding:12px 12px 7px;color:rgba(226,232,240,.68);font:500 .44rem/1 'JetBrains Mono',monospace;}
+.mcp-status-row b{width:6px;height:6px;border-radius:50%;background:#34d399;box-shadow:0 0 8px rgba(52,211,153,.75);}
+.mcp-panels{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:7px;padding:5px 12px 12px;height:calc(100% - 64px);}
+.mcp-panels i{display:block;border:1px solid rgba(139,92,246,.12);border-radius:7px;background:linear-gradient(145deg,rgba(139,92,246,.12),rgba(6,182,212,.045));}
+.project-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px;}
+.project-actions .project-open{margin-top:0;}
+.project-download{background:linear-gradient(135deg,rgba(6,182,212,.15),rgba(139,92,246,.08));border-color:rgba(103,232,249,.2);}
+@media (max-width:860px){.projects-grid{grid-template-columns:1fr 1fr}.project-card:last-child{grid-column:auto}}
+@media (max-width:640px){.projects-grid{grid-template-columns:1fr}.project-actions{grid-template-columns:1fr 1fr}}
+@media (max-width:380px){.project-actions{grid-template-columns:1fr}}
