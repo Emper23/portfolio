@@ -1145,16 +1145,17 @@ footer {
   transform:translate3d(0,34px,0) scale(.985);
   filter:blur(5px);
   transition:
-    opacity .72s cubic-bezier(.22,1,.36,1) var(--reveal-delay,0ms),
-    transform .82s cubic-bezier(.22,1,.36,1) var(--reveal-delay,0ms),
-    filter .72s ease var(--reveal-delay,0ms);
+    opacity .72s cubic-bezier(.22,1,.36,1),
+    transform .82s cubic-bezier(.22,1,.36,1),
+    filter .72s ease;
   will-change:opacity,transform,filter;
 }
 .projects-heading.reveal-item{
   transform:translate3d(0,22px,0);
   filter:blur(3px);
 }
-.reveal-item.is-visible{
+ .reveal-item.is-visible{
+  transition-delay:var(--reveal-delay,0ms);
   opacity:1;
   transform:translate3d(0,0,0) scale(1);
   filter:blur(0);
