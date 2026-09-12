@@ -1,0 +1,18 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local project tooling / backups
+.serena/
+_backup_before_cleanup_*/
+_backup_before_projects_*/
+
+# Node (เผื่ออนาคต)
+node_modules/
+npm-debug.log*
+
+# Build / deploy tooling
+.netlify/
+.vercel/
+.wrangler/
