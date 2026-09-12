@@ -39,6 +39,32 @@
   <!-- Grid overlay -->
   <div class="grid-overlay"></div>
 
+  <!-- Background music controls -->
+    <div class="music-controls" id="music-controls" aria-label="ตัวควบคุมเสียงเพลง">
+      <button class="music-toggle" id="music-toggle" type="button" aria-label="ปิดเสียง" aria-pressed="false">
+        <svg class="music-icon music-icon-on" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M11 5 6 9H3v6h3l5 4V5Z"></path>
+          <path d="M15 9.5a4 4 0 0 1 0 5"></path>
+          <path d="M17.8 7a7.5 7.5 0 0 1 0 10"></path>
+        </svg>
+        <svg class="music-icon music-icon-off" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M11 5 6 9H3v6h3l5 4V5Z"></path>
+          <path d="m16 10 5 5"></path>
+          <path d="m21 10-5 5"></path>
+        </svg>
+      </button>
+      <div class="music-volume-wrap">
+        <div class="music-volume-head">
+          <span>Background music</span>
+          <span id="music-volume-value">25%</span>
+        </div>
+        <input class="music-volume" id="music-volume" type="range" min="0" max="100" step="1" value="25" aria-label="ระดับเสียงเพลง">
+      </div>
+    </div>
+
+    <audio id="music-audio" src="xujinhuan.mp3" preload="none" loop></audio>
+
+
   <div class="card-tilt" id="card-tilt">
   <main class="profile" id="profile-card">
 
@@ -142,31 +168,6 @@
         <span class="link-arrow">→</span>
       </a>
     </div>
-
-    <!-- Background music controls -->
-    <div class="music-controls" id="music-controls" aria-label="ตัวควบคุมเสียงเพลง">
-      <button class="music-toggle" id="music-toggle" type="button" aria-label="ปิดเสียง" aria-pressed="false">
-        <svg class="music-icon music-icon-on" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M11 5 6 9H3v6h3l5 4V5Z"></path>
-          <path d="M15 9.5a4 4 0 0 1 0 5"></path>
-          <path d="M17.8 7a7.5 7.5 0 0 1 0 10"></path>
-        </svg>
-        <svg class="music-icon music-icon-off" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M11 5 6 9H3v6h3l5 4V5Z"></path>
-          <path d="m16 10 5 5"></path>
-          <path d="m21 10-5 5"></path>
-        </svg>
-      </button>
-      <div class="music-volume-wrap">
-        <div class="music-volume-head">
-          <span>Background music</span>
-          <span id="music-volume-value">25%</span>
-        </div>
-        <input class="music-volume" id="music-volume" type="range" min="0" max="100" step="1" value="25" aria-label="ระดับเสียงเพลง">
-      </div>
-    </div>
-
-    <audio id="music-audio" src="xujinhuan.mp3" preload="none" loop></audio>
 
     <footer>© <span id="year">2026</span> Znith · Built with <span class="heart">❤️</span></footer>
   </main>
