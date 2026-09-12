@@ -176,7 +176,7 @@
 
   <!-- Featured projects -->
   <section class="projects-section" id="projects" aria-labelledby="projects-title">
-    <div class="projects-heading">
+    <div class="projects-heading reveal-item" data-reveal="heading">
       <div>
         <span class="section-kicker">SELECTED WORK</span>
         <h2 id="projects-title">Featured Projects</h2>
@@ -185,7 +185,7 @@
     </div>
 
     <div class="projects-grid">
-      <article class="project-card project-game project-live">
+      <article class="project-card reveal-item project-game project-live" style="--reveal-delay:0ms">
         <div class="project-visual" aria-hidden="true">
           <div class="project-window">
             <span></span><span></span><span></span>
@@ -206,7 +206,7 @@
         </div>
       </article>
 
-      <article class="project-card project-manga project-live">
+      <article class="project-card reveal-item project-manga project-live" style="--reveal-delay:110ms">
         <div class="project-visual" aria-hidden="true">
           <div class="manga-sheet manga-sheet-one"></div>
           <div class="manga-sheet manga-sheet-two"></div>
@@ -223,7 +223,7 @@
         </div>
       </article>
 
-      <article class="project-card project-mcp project-live">
+      <article class="project-card reveal-item project-mcp project-live" style="--reveal-delay:220ms">
         <div class="project-visual" aria-hidden="true">
           <div class="mcp-glow"></div>
           <div class="mcp-window">
@@ -486,6 +486,21 @@
       document.addEventListener('mouseleave', () => {
         tilt.style.transform = 'perspective(900px) rotateY(0) rotateX(0)';
       });
+    }
+
+    /* ── Scroll reveal ── */
+    if (!REDUCED && 'IntersectionObserver' in window) {
+      const revealItems = document.querySelectorAll('.reveal-item');
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.16, rootMargin: '0px 0px -8% 0px' });
+      revealItems.forEach(el => revealObserver.observe(el));
+    } else {
+      document.querySelectorAll('.reveal-item').forEach(el => el.classList.add('is-visible'));
     }
   </script>
 </body>
