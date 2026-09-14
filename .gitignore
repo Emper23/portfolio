@@ -5,8 +5,11 @@ desktop.ini
 
 # Local project tooling / backups
 .serena/
-_backup_before_cleanup_*/
-_backup_before_projects_*/
+.znith/
+_backup_before_*/
+
+# One-off local MCP / Roblox tooling kept outside the website root
+_local_tools/
 
 # Node (เผื่ออนาคต)
 node_modules/
