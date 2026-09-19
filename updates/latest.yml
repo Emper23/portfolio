@@ -1,0 +1,9 @@
+version: 1.1.0
+files:
+  - url: https://github.com/Emper23/portfolio/releases/download/devos-v1.1.0/Znith.DevOS.Setup.1.1.0.exe
+    sha512: bTdrOrZF+SaSxcH1dCE3qWTZuN0OWDY1NnmVrRjkaVeWaDuluNA8r+bqLQ+v5U/PGIihnZ6Oi8bgsNHXpwSHHA==
+    size: 112248835
+path: https://github.com/Emper23/portfolio/releases/download/devos-v1.1.0/Znith.DevOS.Setup.1.1.0.exe
+sha512: bTdrOrZF+SaSxcH1dCE3qWTZuN0OWDY1NnmVrRjkaVeWaDuluNA8r+bqLQ+v5U/PGIihnZ6Oi8bgsNHXpwSHHA==
+releaseDate: '2026-09-19T16:39:10.542Z'
+releaseName: Znith DevOS 1.1.0
